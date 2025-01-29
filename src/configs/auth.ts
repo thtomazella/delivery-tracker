@@ -1,8 +1,15 @@
 import { env } from "@/env"
 
-export const authConfig ={
+interface AuthConfig {
+  jwt: {
+    secret: string;
+    expiresIn: number;
+  };
+}
+
+export const authConfig: AuthConfig ={
   jwt:{
     secret: env.JWT_SECRET,
-    expiresIn: "1d"
+    expiresIn: env.EXPIRES_IN,
   }
 }

@@ -4,7 +4,7 @@ import { AppError } from "@/utils/AppError"
 import { prisma } from "@/database/prisma"
 import { compare } from "bcrypt"
 import { sign } from "jsonwebtoken"
-import { z } from "zod"
+import { string, z } from "zod"
 
 class SessionsController{
   async create(request: Request, response: Response){
@@ -30,11 +30,17 @@ class SessionsController{
 
     const {secret, expiresIn} = authConfig.jwt
 
-    const token = sign({role: user.role ?? "customer"}, secret,
+    if (!secret || typeof secret !== "string") {
+      throw new Error("JWT secret is not a valid string");
+    }
+
+    const token = sign(
+      {role: user.role ?? "customer"}, 
+      secret,
       {
         subject: user.id,
         expiresIn
-      }
+      },
     )
 
     const {password: hashedPassword, ...userWithoutPassword} = user

@@ -2,14 +2,14 @@
   "name": "rocketlog",
   "version": "1.0.0",
   "main": "src/server.ts",
-  "engines":{
+  "engines": {
     "node": ">=18"
   },
   "scripts": {
     "dev": "tsx watch --env-file .env src/server.ts",
     "test:dev": "set NODE_OPTIONS=--experimental-vm-modules && npx jest --watchAll --runInBand",
-    "build" : "tsup src --out-dir build",
-    "start" : "node build/server.js"
+    "build": "tsup src --out-dir build",
+    "start": "node build/server.js"
   },
   "author": "Thiago Tomazella",
   "license": "ISC",
@@ -17,16 +17,16 @@
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "bcrypt": "^5.1.1",
-    "express": "^4.19.2",
+    "express": "^4.21.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.13",
-    "@types/jsonwebtoken": "^9.0.6",
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.8",
     "@types/node": "^20.14.12",
     "@types/supertest": "^6.0.2",
     "jest": "^29.7.0",
@@ -34,8 +34,8 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "tsup": "^8.3.0",
-    "tsx": "^4.16.2",
-    "typescript": "^5.5.4"
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   }
 }
